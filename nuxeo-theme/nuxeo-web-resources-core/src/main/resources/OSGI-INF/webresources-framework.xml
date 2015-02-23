@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<component name="org.nuxeo.ecm.platform.WebResources">
+
+  <service>
+    <provide interface="org.nuxeo.ecm.web.resources.api.service.WebResourceManager" />
+  </service>
+  <implementation class="org.nuxeo.ecm.web.resources.core.service.WebResourceManagerImpl" />
+
+  <extension-point name="resources">
+    <object class="org.nuxeo.ecm.web.resources.core.ResourceImpl" />
+  </extension-point>
+
+  <extension-point name="resourceBundles">
+    <object class="org.nuxeo.ecm.web.resources.core.ResourceBundleImpl" />
+  </extension-point>
+
+</component>

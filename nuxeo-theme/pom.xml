@@ -22,6 +22,9 @@
     <module>nuxeo-theme-fragments</module>
     <module>nuxeo-theme-html</module>
     <module>nuxeo-theme-styling</module>
+    <module>nuxeo-web-resources-api</module>
+    <module>nuxeo-web-resources-core</module>
+    <module>nuxeo-web-resources-rest</module>
   </modules>
 
   <organization>
