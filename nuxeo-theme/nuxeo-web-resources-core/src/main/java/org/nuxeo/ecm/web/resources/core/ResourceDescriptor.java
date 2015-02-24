@@ -31,7 +31,7 @@ import org.nuxeo.ecm.web.resources.api.ResourceType;
  * @since 7.2
  */
 @XObject("resource")
-public class ResourceImpl implements Resource {
+public class ResourceDescriptor implements Resource {
 
     private static final long serialVersionUID = 1L;
 
@@ -46,6 +46,9 @@ public class ResourceImpl implements Resource {
 
     @XNodeList(value = "require", type = ArrayList.class, componentType = String.class)
     public List<String> dependencies;
+
+    @XNodeList(value = "processors/processor", type = ArrayList.class, componentType = String.class)
+    public List<String> processors;
 
     @XNode("shrinkable")
     public boolean shrinkable = true;
@@ -67,6 +70,11 @@ public class ResourceImpl implements Resource {
     @Override
     public List<String> getDependencies() {
         return dependencies;
+    }
+
+    @Override
+    public List<String> getProcessors() {
+        return processors;
     }
 
     @Override

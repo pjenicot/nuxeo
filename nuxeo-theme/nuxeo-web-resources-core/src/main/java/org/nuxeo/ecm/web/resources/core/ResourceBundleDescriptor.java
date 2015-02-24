@@ -28,7 +28,7 @@ import org.nuxeo.ecm.web.resources.api.ResourceBundle;
  * @since 7.2
  */
 @XObject("resourceBundle")
-public class ResourceBundleImpl implements ResourceBundle {
+public class ResourceBundleDescriptor implements ResourceBundle {
 
     private static final long serialVersionUID = 1L;
 
@@ -54,8 +54,8 @@ public class ResourceBundleImpl implements ResourceBundle {
         return append;
     }
 
-    public ResourceBundleImpl clone() {
-        ResourceBundleImpl c = new ResourceBundleImpl();
+    public ResourceBundleDescriptor clone() {
+        ResourceBundleDescriptor c = new ResourceBundleDescriptor();
         c.name = name;
         c.append = append;
         if (resources != null) {
@@ -66,8 +66,8 @@ public class ResourceBundleImpl implements ResourceBundle {
 
     @Override
     public ResourceBundle merge(ResourceBundle other) {
-        if (other instanceof ResourceBundleImpl) {
-            boolean append = ((ResourceBundleImpl) other).isAppend();
+        if (other instanceof ResourceBundleDescriptor) {
+            boolean append = ((ResourceBundleDescriptor) other).isAppend();
             List<String> res = other.getResources();
             List<String> merged = new ArrayList<String>();
             if (append && resources != null) {

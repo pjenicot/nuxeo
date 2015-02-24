@@ -14,36 +14,29 @@
  * Contributors:
  *     Anahide Tchertchian
  */
+package org.nuxeo.ecm.web.resources.core;
 
-package org.nuxeo.ecm.web.resources.api;
-
-import java.io.Serializable;
-import java.util.List;
+import org.nuxeo.common.xmap.annotation.XNode;
+import org.nuxeo.common.xmap.annotation.XObject;
 
 /**
- * Typed Web resource (js, css, bundle).
- *
  * @since 7.2
  */
-public interface Resource extends Serializable {
+@XObject("processor")
+public class ProcessorDescriptor {
 
-    String getName();
+    @XNode("@name")
+    public String name;
 
-    ResourceType getType();
+    @XNode("class")
+    String className;
 
-    String getPath();
+    public String getName() {
+        return name;
+    }
 
-    /**
-     * Names of the resource dependencies.
-     */
-    List<String> getDependencies();
-
-    /**
-     * Names of the resource processors, hooking features like flavor replacement on the resource.
-     */
-    List<String> getProcessors();
-
-    // TODO: check if this is still useful
-    boolean isShrinkable();
+    public String getClassName() {
+        return className;
+    }
 
 }

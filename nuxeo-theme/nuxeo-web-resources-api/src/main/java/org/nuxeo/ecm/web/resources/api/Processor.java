@@ -14,36 +14,17 @@
  * Contributors:
  *     Anahide Tchertchian
  */
-
 package org.nuxeo.ecm.web.resources.api;
 
-import java.io.Serializable;
-import java.util.List;
-
 /**
- * Typed Web resource (js, css, bundle).
+ * Resource processor.
  *
  * @since 7.2
  */
-public interface Resource extends Serializable {
+public interface Processor {
 
     String getName();
 
-    ResourceType getType();
-
-    String getPath();
-
-    /**
-     * Names of the resource dependencies.
-     */
-    List<String> getDependencies();
-
-    /**
-     * Names of the resource processors, hooking features like flavor replacement on the resource.
-     */
-    List<String> getProcessors();
-
-    // TODO: check if this is still useful
-    boolean isShrinkable();
+    void run(ResourceContext ctx, Resource resource);
 
 }
